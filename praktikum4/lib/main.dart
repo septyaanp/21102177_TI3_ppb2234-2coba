@@ -17,7 +17,56 @@ class MyApp extends StatelessWidget {
             leading: Icon(Icons.arrow_back),
             backgroundColor: Colors.red,
           ),
-          body: ListView(),
+          body: ListView(
+            children: [
+              Container(
+                height: 250,
+                color: Colors.red,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    //image
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.lightBlueAccent),
+                      child: Icon(
+                        Icons.person,
+                        size: 30,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //Nama
+                    Text(
+                      "Puspita Kartika Sari",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "2010xxxxxx",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Mahasiswa",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ));
   }
 }
