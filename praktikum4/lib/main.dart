@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
                     ),
                     //Nama
                     Text(
-                      "Puspita Kartika Sari",
+                      "Septya Andini Putri",
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "2010xxxxxx",
+                      "21102177",
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
