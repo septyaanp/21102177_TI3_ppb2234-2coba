@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
           ),
           body: ListView(
             children: [
+              //container pertama
               Container(
                 height: 250,
                 color: Colors.red,
@@ -61,6 +62,61 @@ class MyApp extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.white,
                       ),
+                    )
+                  ],
+                ),
+              ),
+
+              //column kedua
+              Container(
+                margin: EdgeInsets.all(30),
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xffFEF4F3)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Data Diri",
+                      style: TextStyle(
+                          color: Colors.pinkAccent,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Nama "), Text("Septya")],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Kelas "), Text("TI 3")],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Program Studi"),
+                        Text("Teknik Informatika")
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Dosen Wali "), Text("NAP")],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Angkatan "), Text("2021")],
                     )
                   ],
                 ),
