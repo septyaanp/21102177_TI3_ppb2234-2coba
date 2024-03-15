@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Praktikum 4',
         home: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            leading: Icon(Icons.arrow_back),
+            backgroundColor: Colors.red,
+          ),
           body: ListView(),
         ));
   }
