@@ -10,6 +10,12 @@ class SecondPage extends StatelessWidget {
         title: const Text('Second page'),
         backgroundColor: Colors.blueAccent,
       ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('kembali'),
+        ),
+      ),
     );
   }
 }
