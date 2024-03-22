@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowMaterialGrid: false,
       initialRoute: '/',
       routes: {
-        '/home_page': (context) => const HomePage(),
+        '/home_page': (context) =>
+            const HomePage(), //harus ada isinya gabisa cuman '/' doang
         '/second_page': (context) => const SecondPage(),
       },
       home: HomePage(),

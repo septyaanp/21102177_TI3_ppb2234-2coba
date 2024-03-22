@@ -27,6 +27,12 @@ class HomePage extends StatelessWidget {
                 );
               },
               child: const Text('menuju halaman kedua'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+              ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             ElevatedButton(
               onPressed: () {
@@ -34,6 +40,9 @@ class HomePage extends StatelessWidget {
                     arguments: 'Menggunakan route');
               },
               child: const Text('Menuju halaman kedua dengan route'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+              ),
             ),
           ],
         ),
