@@ -8,6 +8,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
+        backgroundColor: Color.fromARGB(255, 81, 156, 248),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('menuju halaman kedua'),
+        ),
       ),
     );
   }
