@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:navigation_dan_routing_prak5/home_page.dart';
 import 'package:navigation_dan_routing_prak5/second_page.dart';
@@ -14,11 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowMaterialGrid: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        '/home_page': (context) => const HomePage(),
         '/second_page': (context) => const SecondPage(),
       },
       home: HomePage(),
