@@ -5,6 +5,7 @@ import 'package:saving_app_prak6/styles/text_style.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
+  static const nameRoute = '/';
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,10 @@ class OnBoardingPage extends StatelessWidget {
                     height: 70,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/main', (route) => false);
+                    },
                     child: Text(
                       'Get Started',
                       style: kButton1.copyWith(color: kWhite),
