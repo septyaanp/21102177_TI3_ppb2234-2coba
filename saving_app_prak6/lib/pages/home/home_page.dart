@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,9 +48,52 @@ class HomePage extends StatelessWidget {
                             image: DecorationImage(
                               image: AssetImage('assets/images/user-img.png'),
                               fit: BoxFit.cover,
-                            )),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: kGrey,
+                                blurRadius: 5,
+                                offset: Offset.fromDirection(2),
+                              ),
+                            ]),
                       )
                     ],
+                  ),
+                  SizedBox(height: 28),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    constraints: BoxConstraints.expand(height: 170),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(25),
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/bg-container.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: kGrey,
+                          blurRadius: 5,
+                          offset: Offset.fromDirection(2),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'My Savings',
+                          style: kSubtitle2.copyWith(color: kWhite),
+                        ),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Text(
+                          'Rp. 10.430.000',
+                          style: kHeading5.copyWith(color: kWhite),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

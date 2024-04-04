@@ -2,6 +2,11 @@ import "package:flutter/material.dart";
 import "package:saving_app_prak6/styles/colors.dart";
 import "package:saving_app_prak6/styles/text_style.dart";
 
+import "home/home_page.dart";
+import "portofolio/portofolio.dart";
+import "profile/profile.dart";
+import "support/support.dart";
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
   static const nameRoute = '/main';
@@ -16,7 +21,7 @@ class _MainPageState extends State<MainPage> {
   static List<Widget> pages = [
     HomePage(),
     PortofolioPage(),
-    SuppoertPage(),
+    SupportPage(),
     ProfilePage(),
   ];
 
