@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:saving_app_prak6/styles/colors.dart';
 import 'package:saving_app_prak6/styles/text_style.dart';
 
@@ -80,6 +81,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'My Savings',
@@ -92,12 +94,71 @@ class HomePage extends StatelessWidget {
                           'Rp. 10.430.000',
                           style: kHeading5.copyWith(color: kWhite),
                         ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        LinearPercentIndicator(
+                          lineHeight: 4,
+                          padding: EdgeInsets.symmetric(horizontal: 0),
+                          progressColor: kEgyptianBlue,
+                          percent: 0.3,
+                          backgroundColor: kWhite,
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          'Rp. 10.430.000  / Rp. 40.000.000',
+                          style: kCaption.copyWith(
+                            color: kWhite,
+                          ),
+                        )
                       ],
                     ),
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      _trasactionButton('assets/icons/save.png', 'Save Money'),
+                      SizedBox(
+                        width: 25,
+                      ),
+                      _trasactionButton('assets/icons/pay.png', 'Pay'),
+                    ],
                   )
                 ],
               ),
             )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _trasactionButton(String icon, String text) {
+    return Expanded(
+      child: Container(
+        constraints: BoxConstraints.expand(
+          height: 60,
+        ),
+        decoration: BoxDecoration(
+          color: kNightBlack,
+          borderRadius: BorderRadius.all(
+            Radius.circular(15),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              icon,
+              width: 24,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              text,
+              style: kBody1.copyWith(color: kWhite),
+            ),
           ],
         ),
       ),
