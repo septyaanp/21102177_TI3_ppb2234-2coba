@@ -129,6 +129,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(top: 200),
               child: DraggableScrollableSheet(
                   builder: (context, scrollController) {
                 return Container(
@@ -163,7 +164,33 @@ class HomePage extends StatelessWidget {
                               SizedBox(
                                 height: 31,
                               ),
-                              _transactionList()
+                              _transactionList(
+                                  kTreeGreen.withOpacity(0.2),
+                                  'assets/icons/triangle-up.png',
+                                  'Success!',
+                                  'February 19, 03:25 PM',
+                                  '+ 100.000'),
+                              _transactionList(
+                                kTreeGreen.withOpacity(0.2),
+                                'assets/icons/triangle-up.png',
+                                'Success!',
+                                'February 16, 01:25 PM',
+                                '+ 150.000',
+                              ),
+                              _transactionList(
+                                kOrange.withOpacity(0.2),
+                                'assets/icons/triangle-down.png',
+                                'Starbucks Drinks',
+                                'February 10, 12:25 PM',
+                                '- 110.000',
+                              ),
+                              _transactionList(
+                                kOrange.withOpacity(0.2),
+                                'assets/icons/triangle-down.png',
+                                'Payment #Invest',
+                                'February 5, 11:05 PM',
+                                '- 130.000',
+                              )
                             ],
                           ),
                         ),
@@ -187,41 +214,46 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _transactionList() {
-    return Row(
-      children: [
-        SizedBox(
-          height: 30,
-          width: 30,
-          child: CircleAvatar(
-            backgroundColor: kTreeGreen.withOpacity(0.2),
-            child: Image(
-              image: AssetImage('assets/icons/triangle-up.png'),
-              width: 14,
+  Widget _transactionList(
+      Color bgColor, String icon, String tittle, String sub, String amount) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Row(
+        children: [
+          SizedBox(
+            height: 30,
+            width: 30,
+            child: CircleAvatar(
+              backgroundColor: bgColor,
+              child: Image(
+                image: AssetImage(icon),
+                width: 14,
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Success!',
-              style: kBody1.copyWith(color: kLuckyBlue),
-            ),
-            Text(
-              'February 19, 03:25 PM',
-              style: kCaption.copyWith(color: kLightGray),
-            ),
-          ],
-        ),
-        Text(
-          '+ 100.000',
-          style: kBody1.copyWith(color: kLuckyBlue),
-        )
-      ],
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                tittle,
+                style: kBody1.copyWith(color: kLuckyBlue),
+              ),
+              Text(
+                sub,
+                style: kCaption.copyWith(color: kLightGray),
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(
+            amount,
+            style: kBody1.copyWith(color: kLuckyBlue),
+          )
+        ],
+      ),
     );
   }
 
