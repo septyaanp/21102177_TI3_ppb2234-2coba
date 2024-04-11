@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                             style: kBody1.copyWith(color: kMatterhornBlack),
                           ),
                           Text(
-                            'Enga Santana',
+                            'Septya Andini Putri 👏',
                             style: kHeading6.copyWith(color: kMatterhornBlack),
                           ),
                         ],
@@ -126,6 +126,12 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+            Container(
+              child: DraggableScrollableSheet(
+                  builder: (context, scrollController) {
+                return Container();
+              }),
             )
           ],
         ),
