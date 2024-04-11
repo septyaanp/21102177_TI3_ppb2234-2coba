@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:saving_app_prak6/styles/colors.dart';
 import 'package:saving_app_prak6/styles/text_style.dart';
@@ -130,7 +131,49 @@ class HomePage extends StatelessWidget {
             Container(
               child: DraggableScrollableSheet(
                   builder: (context, scrollController) {
-                return Container();
+                return Container(
+                  decoration: BoxDecoration(
+                    color: kWhite,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(40),
+                    ),
+                  ),
+                  padding: const EdgeInsets.only(
+                    left: 30,
+                    right: 30,
+                    top: 21,
+                  ),
+                  child: Stack(
+                    children: [
+                      Container(
+                        child: SingleChildScrollView(
+                          controller: scrollController,
+                          child: Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  'Transaction History',
+                                  style: kHeading6.copyWith(
+                                    color: kLuckyBlue,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                          height: 4,
+                          width: 49,
+                          color: kEgyptianBlue.withOpacity(0.1),
+                        ),
+                      )
+                    ],
+                  ),
+                );
               }),
             )
           ],
