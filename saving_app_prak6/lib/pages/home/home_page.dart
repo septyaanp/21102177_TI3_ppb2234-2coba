@@ -146,6 +146,7 @@ class HomePage extends StatelessWidget {
                   child: Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.only(top: 14 + 4),
                         child: SingleChildScrollView(
                           controller: scrollController,
                           child: Column(
@@ -158,7 +159,11 @@ class HomePage extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              )
+                              ),
+                              SizedBox(
+                                height: 31,
+                              ),
+                              _transactionList()
                             ],
                           ),
                         ),
@@ -179,6 +184,44 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _transactionList() {
+    return Row(
+      children: [
+        SizedBox(
+          height: 30,
+          width: 30,
+          child: CircleAvatar(
+            backgroundColor: kTreeGreen.withOpacity(0.2),
+            child: Image(
+              image: AssetImage('assets/icons/triangle-up.png'),
+              width: 14,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Success!',
+              style: kBody1.copyWith(color: kLuckyBlue),
+            ),
+            Text(
+              'February 19, 03:25 PM',
+              style: kCaption.copyWith(color: kLightGray),
+            ),
+          ],
+        ),
+        Text(
+          '+ 100.000',
+          style: kBody1.copyWith(color: kLuckyBlue),
+        )
+      ],
     );
   }
 
