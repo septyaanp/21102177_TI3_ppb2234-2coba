@@ -1,9 +1,4 @@
-import 'dart:ffi';
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:saving_app_prak6/styles/colors.dart';
 import 'package:saving_app_prak6/styles/text_style.dart';
@@ -64,84 +59,114 @@ class PortofolioPage extends StatelessWidget {
               ),
             ),
           ),
+          _portofolioCardList(
+            'assets/icons/pension.png',
+            'Pension Savings Funds',
+            0.3,
+            'Rp 10.430.000 / Rp 40.000.000',
+            'Last saving February 19',
+          ),
+          _portofolioCardList(
+            'assets/icons/camera.png',
+            'Camera',
+            0.5,
+            'Rp 2.050.000 / Rp 4.000.000',
+            'Last saving February 16',
+          ),
+          _portofolioCardList(
+            'assets/icons/camera.png',
+            'Camera',
+            0.5,
+            'Rp 2.050.000 / Rp 4.000.000',
+            'Last saving February 16',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _portofolioCardList(
+    String icon,
+    String title,
+    double percent,
+    String amount,
+    String time,
+  ) {
+    return Container(
+      margin: EdgeInsets.only(
+        left: 30,
+        right: 30,
+        top: 20,
+      ),
+      padding: EdgeInsets.fromLTRB(15, 19, 15, 14),
+      constraints: BoxConstraints.expand(
+        height: 130,
+      ),
+      decoration: BoxDecoration(
+        color: kWhite,
+        borderRadius: BorderRadius.all(
+          Radius.circular(15),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: kGrey,
+            blurRadius: 1,
+            offset: Offset.fromDirection(1, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
           Container(
-            margin: EdgeInsets.only(
-              left: 30,
-              right: 30,
-              top: 20,
-            ),
-            padding: EdgeInsets.fromLTRB(15, 19, 15, 14),
-            constraints: BoxConstraints.expand(
-              height: 130,
-            ),
-            decoration: BoxDecoration(
-              color: kWhite,
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
+            height: 55,
+            width: 55,
+            child: CircleAvatar(
+              backgroundColor: kTropicalBlue,
+              child: Image.asset(
+                icon,
+                width: 24,
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: kGrey,
-                  blurRadius: 1,
-                  offset: Offset.fromDirection(1, 2),
-                ),
-              ],
-            ),
-            child: Row(
-              children: [
-                Container(
-                  height: 55,
-                  width: 55,
-                  child: CircleAvatar(
-                    backgroundColor: kTropicalBlue,
-                    child: Image.asset(
-                      'assets/icons/pension.png',
-                      width: 24,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Pension Savings Funds',
-                        style: kSubtitle1,
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      LinearPercentIndicator(
-                        lineHeight: 4,
-                        padding: EdgeInsets.symmetric(horizontal: 0),
-                        percent: 0.3,
-                        progressColor: kBlueRibbon,
-                        backgroundColor: kGrey.withOpacity(0.3),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Text(
-                        'Rp 10.430.000 / Rp 40.000.000',
-                        style: kBody2.copyWith(color: kGrey),
-                      ),
-                      Spacer(),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Last saving February 19',
-                          style: kCaption.copyWith(color: kLightGray),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
             ),
           ),
+          SizedBox(
+            width: 15,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: kSubtitle1,
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                LinearPercentIndicator(
+                  lineHeight: 4,
+                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  percent: percent,
+                  progressColor: kBlueRibbon,
+                  backgroundColor: kGrey.withOpacity(0.3),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  amount,
+                  style: kBody2.copyWith(color: kGrey),
+                ),
+                Spacer(),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    time,
+                    style: kCaption.copyWith(color: kLightGray),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
