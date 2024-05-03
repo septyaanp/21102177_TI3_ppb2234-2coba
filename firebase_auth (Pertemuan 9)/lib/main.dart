@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pertemuan9/firebase_options.dart';
 
+import 'bloc/login/login_cubit.dart';
+import 'bloc/register/register_cubit.dart';
 import 'ui/splash.dart';
 import 'utils/routes.dart';
 
@@ -18,12 +21,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Praktikum 9",
-      debugShowCheckedModeBanner: false,
-      navigatorKey: NAV_KEY,
-      onGenerateRoute: generateRoute,
-      home: SplashScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => RegisterCubit())
+      ],
+      child: MaterialApp(
+        title: "Praktikum 9",
+        debugShowCheckedModeBanner: false,
+        navigatorKey: NAV_KEY,
+        onGenerateRoute: generateRoute,
+        home: SplashScreen(),
+      ),
     );
   }
 }
