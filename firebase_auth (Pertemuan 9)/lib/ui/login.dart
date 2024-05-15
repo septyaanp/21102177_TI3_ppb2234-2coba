@@ -141,7 +141,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      signInWithGoogle();
+                    },
                     child: const CircleAvatar(
                       radius: 20.0,
                       backgroundImage: NetworkImage(
