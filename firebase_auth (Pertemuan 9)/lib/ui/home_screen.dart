@@ -7,13 +7,23 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Text(
-        "HOME SCREEN",
-        style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3D4DE0)),
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "HOME SCREEN",
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff3D4DE0)),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Keluar'),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
