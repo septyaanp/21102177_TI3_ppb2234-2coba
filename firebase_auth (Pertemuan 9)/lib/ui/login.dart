@@ -6,6 +6,7 @@ import 'package:pertemuan9/bloc/login/login_cubit.dart';
 import 'package:pertemuan9/ui/home_screen.dart';
 
 import '../utils/routes.dart';
+import 'phone_auth_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -136,6 +137,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   )),
               const SizedBox(
                 height: 30.0,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PhoneAuthScreen()));
+                },
+                child: const CircleAvatar(
+                  radius: 20.0,
+                  backgroundImage: NetworkImage(
+                      'https://freepngimg.com/thumb/business/83615-blue-icons-symbol-telephone-computer-logo.png'),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

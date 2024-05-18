@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pertemuan9/ui/login.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +20,16 @@ class HomeScreen extends StatelessWidget {
                   color: Color(0xff3D4DE0)),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                FirebaseAuth.instance
+                    .signOut()
+                    .then((value) => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                        (Route) => false));
+              },
               child: const Text('Keluar'),
             )
           ],
