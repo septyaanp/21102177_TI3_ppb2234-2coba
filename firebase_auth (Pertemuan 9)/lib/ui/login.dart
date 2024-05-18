@@ -19,9 +19,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final passEdc = TextEditingController();
   bool passInvisible = false;
 
-  Future<UserCredential> signInWithGoogle() async {
+   Future<UserCredential?> signInWithGoogle() async {
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+    if (gUser == null) {
+      // User is null, handle this case, maybe return null or handle the UI feedback
+      print('Google sign in was cancelled by the user.');
+      return null;
+    }
+
+    final GoogleSignInAuthentication gAuth = await gUser.authentication;
     final credential = GoogleAuthProvider.credential(
       accessToken: gAuth.accessToken,
       idToken: gAuth.idToken,
