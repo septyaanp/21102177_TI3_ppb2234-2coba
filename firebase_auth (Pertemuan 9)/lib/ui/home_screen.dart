@@ -164,7 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                             });
                                         //tindakan edit
                                       } else if (value == 'delete') {
-//tindakan edit
+                                        String documentId = document.id;
+                                        _firestore
+                                            .collection('tasks')
+                                            .doc(documentId)
+                                            .delete();
                                       }
                                     },
                                     itemBuilder: (BuildContext context) => [
