@@ -59,6 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> data =
                     document.data()! as Map<String, dynamic>;
+                final titleEdc =
+                    TextEditingController(text: data['title'].toString());
+                final noteEdc =
+                    TextEditingController(text: data['note'].toString());
                 return SizedBox(
                   height: 170.0,
                   width: MediaQuery.of(context).size.width,
@@ -84,6 +88,80 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: PopupMenuButton<String>(
                                     onSelected: (value) {
                                       if (value == 'edit') {
+                                        showModalBottomSheet(
+                                            context: context,
+                                            isScrollControlled: true,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding:
+                                                    const EdgeInsets.all(16.0),
+                                                child: Form(
+                                                  key: _formKey,
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      TextFormField(
+                                                        controller: titleEdc,
+                                                      ),
+                                                      const SizedBox(
+                                                          height: 10.0),
+                                                      SizedBox(
+                                                          height: 300,
+                                                          child: TextFormField(
+                                                            controller: noteEdc,
+                                                            maxLines:
+                                                                null, // Set this
+                                                            expands:
+                                                                true, // and this
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .multiline,
+                                                          )),
+                                                      Padding(
+                                                          padding: EdgeInsets.only(
+                                                              bottom: MediaQuery
+                                                                      .of(
+                                                                          context)
+                                                                  .viewInsets
+                                                                  .bottom),
+                                                          child: SizedBox(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              child:
+                                                                  ElevatedButton(
+                                                                      onPressed:
+                                                                          () async {
+                                                                        if (_formKey
+                                                                            .currentState!
+                                                                            .validate()) {
+                                                                          try {
+                                                                            await _firestore.collection('tasks').doc(document.id).update({
+                                                                              'title': titleEdc.text,
+                                                                              'note': noteEdc.text,
+                                                                              'timestamp': FieldValue.serverTimestamp(),
+                                                                            });
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              const SnackBar(content: Text('Note berhasil diperbarui')),
+                                                                            );
+                                                                            Navigator.pop(context);
+                                                                          } catch (e) {
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(content: Text('$e')),
+                                                                            );
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      child: const Text(
+                                                                          'Save'))))
+                                                    ],
+                                                  ),
+                                                ),
+                                              );
+                                            });
                                         //tindakan edit
                                       } else if (value == 'delete') {
 //tindakan edit
